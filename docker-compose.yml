@@ -2,9 +2,7 @@ version: "3.8"
 services:
   backend:
     container_name: "backend"
-    build:
-      context: ./
-      dockerfile: ./backend/Dockerfile
+    build: ./backend
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
     env_file:

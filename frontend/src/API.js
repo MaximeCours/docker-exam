@@ -1,7 +1,7 @@
 import axios from "axios";
 
 const api = axios.create({
-    baseURL: 'http://db:4001'
+    baseURL: 'http://localhost:4001'
 });
 
 export const getTodos = async () => {
