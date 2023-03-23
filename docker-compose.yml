@@ -7,9 +7,10 @@ services:
       dockerfile: ./backend/Dockerfile
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
+    env_file:
+      - .env
     volumes:
       - ./backend:/app
-      - .env:/app/.env
       - /app/node_modules
     depends_on:
       - database
