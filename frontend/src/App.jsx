@@ -13,7 +13,7 @@ const App = () => {
   const fetchTodos = () => {
     getTodos()
       .then(({ data }) => {
-        setTodos(data);
+        setTodos(data.todos);
       })
       .then(console.log)
       .catch((err) => console.log(err));

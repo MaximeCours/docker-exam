@@ -25,7 +25,8 @@ db.schema.hasTable('todo').then(function(exists) {
     console.log('Table todo successfully created')
     return db.schema.createTable('todo', function(t) {
       t.increments('id').primary();
-      t.string('content');
+      t.string('name');
+      t.string('description');
     });
   }
 });
@@ -39,9 +40,10 @@ app.get("/todos", async (req, res) => {
 });
 
 app.post("/todos", async (req, res) => {
-  if (req.body.content){
+  if (req.body.name){
     const result = await db('todo').insert({
-      content: req.body.content
+      name: req.body.name,
+      description: req.body.description ?? ''
     })
     res.send({
       success: result
