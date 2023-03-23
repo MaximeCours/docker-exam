@@ -7,4 +7,15 @@ services:
       dockerfile: ./backend/Dockerfile
     ports:
       - "${BACKEND_PORT}:${BACKEND_PORT}"
-
+    volumes:
+      - ./backend:/app
+      - .env:/app/.env
+      - /app/node_modules
+  database:
+    container_name: database
+    image: mariadb
+    environment:
+      MARIADB_DATABASE: ${DB_NAME}
+      MARIADB_USER: ${DB_USER}
+      MARIADB_PASSWORD: ${DB_PASSWORD}
+      MARIADB_RANDOM_ROOT_PASSWORD: '1'

@@ -1,6 +1,5 @@
 FROM node
-WORKDIR /usr/src/app
-COPY ./backend .
-COPY .env .
+WORKDIR /app
+COPY /backend/package.json .
 RUN npm i --silent
-CMD ["node", "index.js"]
+CMD ["npx", "nodemon", "-L", "./index.js"]

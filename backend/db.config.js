@@ -1,7 +1,9 @@
+require('dotenv').config()
+
 module.exports = {
-  HOST: "TO_MODIFY",
-  USER: "TO_MODIFY",
-  PASSWORD: "TO_MODIFY",
-  DATABASE: "TO_MODIFY",
-  PORT: "TO_MODIFY",
+  HOST: 'database',
+  USER: process.env.DB_USER,
+  PASSWORD: process.env.DB_PASSWORD,
+  DATABASE: process.env.DB_NAME,
+  PORT: "3306",
 };
