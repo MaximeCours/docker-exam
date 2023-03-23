@@ -1,3 +1,4 @@
+require('dotenv').config()
 const express = require("express");
 const config = require("./db.config");
 
@@ -15,7 +16,7 @@ const db = require("knex")({
 const cors = require("cors");
 const app = express();
 
-const port = //TO_MODIFY
+const port = process.env.BACKEND_PORT
 app.use(express.json());
 app.use(cors());
 

@@ -1,1 +1,10 @@
-#TO_MODIFY
+version: "3.8"
+services:
+  backend:
+    container_name: "backend"
+    build:
+      context: ./
+      dockerfile: ./backend/Dockerfile
+    ports:
+      - "${BACKEND_PORT}:${BACKEND_PORT}"
+
