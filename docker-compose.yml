@@ -14,10 +14,18 @@ services:
     depends_on:
       - database
   database:
-    container_name: database
+    container_name: "database"
     image: mariadb
     environment:
       MARIADB_DATABASE: ${DB_NAME}
       MARIADB_USER: ${DB_USER}
       MARIADB_PASSWORD: ${DB_PASSWORD}
       MARIADB_RANDOM_ROOT_PASSWORD: '1'
+  frontend:
+    container_name:  "frontend"
+    build: ./frontend
+    volumes:
+      - ./frontend:/app
+      - /app/node_modules
+    ports:
+      - "4000:3000"
